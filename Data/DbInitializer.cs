@@ -19,8 +19,6 @@ namespace Invoices.Data
             DateTime startDate = endDate.AddDays(-14);
             endDate = endDate.AddDays(4);
             TimeSpan timeSpan = endDate - startDate;
-            //TimeSpan newSpan = new TimeSpan(0, random.Next(0, (int)timeSpan.TotalMinutes), 0);
-            //DateTime newDate = startDate + newSpan;
 
             for (var i = 0; i < invoices.Length; i++)
             {
@@ -32,7 +30,7 @@ namespace Invoices.Data
                 invoice.TotalValue = (decimal)(random.NextSingle() * 1000);
                 invoices[i] = invoice;
                 if(customers.FindIndex(x => x.ID == invoice.CustomerID) == -1)
-                    customers.Add(new Customer() { ID = invoice.CustomerID });
+                    customers.Add(new Customer() { ID = invoice.CustomerID, Name = "KUPAC " + invoice.CustomerID });
             }
             
             context.Customers.AddRange(customers);

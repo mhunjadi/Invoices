@@ -11,7 +11,6 @@ namespace Invoices.Models
 
         public string? Name { get; set; }
 
-        //public Invoice? Invoice { get; set; }
         public ICollection<Invoice> Invoices { get; set; }
     }
 }

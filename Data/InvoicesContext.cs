@@ -16,13 +16,10 @@ namespace Invoices.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            //modelBuilder.Entity<Customer>().ToTable("Customer");
-            //modelBuilder.Entity<Invoice>().ToTable("Invoice");
             modelBuilder.Entity<Customer>()
                 .HasMany(i => i.Invoices)
                 .WithOne(c => c.Customer)
                 .HasForeignKey(i => i.CustomerID);
-                //.IsRequired();
         }
     }
 }

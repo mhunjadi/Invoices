@@ -1,7 +1,7 @@
 ﻿@model Invoices.Models.Invoice
 
 @{
-    ViewData["Title"] = "Details";
+    ViewData["Title"] = "Pregled";
 }
 
 <h1>Details</h1>
@@ -11,19 +11,19 @@
     <hr />
     <dl class="row">
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.CustomerID)
+            BROJ_KUPCA
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.CustomerID)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.InvoiceDate)
+            DATUM_RACUNA
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.InvoiceDate)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.TotalValue)
+            VRIJEDNOST
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.TotalValue)
@@ -31,6 +31,5 @@
     </dl>
 </div>
 <div>
-    <!--<a asp-action="Edit" asp-route-id="@Model?.ID">Edit</a>--> |
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Index">Natrag</a>
 </div>
