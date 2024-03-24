@@ -20,13 +20,33 @@ namespace Invoices.Controllers
         }
 
         // GET: Customers
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(int? id)
         {
-            var customers = await _context.Customers
-              .Include(i => i.Invoices)
-              .ToListAsync();
+            if (id == 1)
+            {
+                var customers = await _context.Customers
+                  .Include(i => i.Invoices.Where(inv => inv.InvoiceDate >= DateTime.Today.AddDays(-7) && inv.InvoiceDate < DateTime.Today))
+                  .ToListAsync();
 
-            return View(customers);
+                return View(customers);
+            }
+            else if (id == 2)
+            {
+                var customers = await _context.Customers
+                 .Include(i => i.Invoices.Where(inv => inv.InvoiceDate >= DateTime.Today.AddDays(-14) && inv.InvoiceDate < DateTime.Today.AddDays(-7)))
+                 .ToListAsync();
+
+                return View(customers);
+            }
+            else
+            {
+                var customers = await _context.Customers
+                  .Include(i => i.Invoices)
+                  .ToListAsync();
+
+                return View(customers);
+            }
+
         }
 
         // GET: Customers/Details/5

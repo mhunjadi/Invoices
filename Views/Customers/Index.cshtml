@@ -12,8 +12,8 @@
             <th>
                 @Html.DisplayNameFor(model => model.ID)
             </th>
-            <th></th>
-            <th></th>
+            <th><a asp-action="Index" asp-route-id="2">-14 do -8 dana</a></th>
+            <th><a asp-action="Index" asp-route-id="1">-7 do -1</a></th>
         </tr>
     </thead>
     <tbody>
@@ -32,7 +32,9 @@
                                         @Html.DisplayFor(modelItem => invoice.CustomerID)
                                     </td>
                                     <td>
+                                        <span data-invoice-date="">
                                         @Html.DisplayFor(modelItem => invoice.InvoiceDate)
+                                        </span>
                                     </td>
                                     <td>
                                         @Html.DisplayFor(modelItem => invoice.TotalValue)
@@ -41,7 +43,6 @@
                             }
                         </tbody>
                     </table>
-
             </td>
             <td>
                     <a asp-action="Details" asp-route-id="@item.ID">Pregled kupca</a>
@@ -50,3 +51,4 @@
 }
     </tbody>
 </table>
+
